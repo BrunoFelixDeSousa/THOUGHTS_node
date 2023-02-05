@@ -1,11 +1,14 @@
 const minimist = require('minimist')
 
+// modulo interno
+const meuModulo = require('./soma').soma
+
+// modulo externo
 const args = minimist(process.argv.slice(2))
 
-console.log(args)
+//const args = minimist(process.argv.slice(2))
 
-const nome = args['nome']
-const idade = args['idade']
+const a = parseInt(args['a'])
+const b = parseInt(args['b'])
 
-console.log(nome)
-console.log(idade)
+soma(a, b)
