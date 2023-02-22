@@ -4,6 +4,9 @@ const path = require("path")
 const  app = express()
 const port = 3000
 
+const users = require('./users')
+
+const basePath = path.join(__dirname, 'templates')
 
 // ler o body
 app.use(
@@ -12,7 +15,9 @@ app.use(
     })
 )
 
-const checkAuth = function (req, res, next) {
+app.use(express.json)
+
+var checkAuth = function (req, res, next) {
 
     req.authStatus = true
 
@@ -26,29 +31,7 @@ const checkAuth = function (req, res, next) {
 }
 
 app.use(checkAuth)
-const basePath = path.join(__dirname, 'templates')
 
-app.get('/users/add', (req, res) => {
-    res.sendFile(`${basePath}/userform.html`)
-})
- 
-app.post('/users/save', (req, res) => {
-    console.log(req.body)
-    const name = req.body.name
-    const age = req.body.age
-
-    console.log(name)
-    console.log(age)
-    res.sendFile(`${basePath}/userform.html`)
-})
-
-app.get('/users/:id', (req, res) => {
-    const id = req.params.id
-
-    console.log(`Estamos buscando pelo usuário: ${id}`)
-    
-    res.sendFile(`${basePath}/users.html`)
-})
 
 app.get('/', (req, res) => {
 
@@ -58,4 +41,5 @@ app.get('/', (req, res) => {
 
 app.listen(port, () => {
     console.log(`App rodando na porta ${port}`)
+    console.log(`${basePath}/index.html`)
 })

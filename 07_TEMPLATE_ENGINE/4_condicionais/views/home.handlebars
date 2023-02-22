@@ -1,0 +1,13 @@
+<h1>
+  Olá Handlebars com Layout!
+</h1>
+
+<p>o nome do usuário é {{user.name}} {{user.lastname}}</p>
+
+{{#if auth}}
+  <p>
+    você está autenticado, <a href="/dashboard">clique aqui</a> para acessar o dashboard
+  </p>
+{{else}}
+  <p>Faça o login para acessar <a href="/">clique aqui</a></p>
+{{/if}}
