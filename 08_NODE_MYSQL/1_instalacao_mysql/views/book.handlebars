@@ -3,5 +3,13 @@
     <div class="container">
         <h1>{{book.title}}</h1>
         <p>Páginas: {{book.pageqty}}</p>
+
+        <div class="actions">
+        <a href="/books/edit/{{book.id}}">editar</a>
+        <form action="/books/remove/{{book.id}}" method="post">
+            <input type="submit" value="deletar">
+        </form>
     </div>
+    </div>
+    
 </div>
