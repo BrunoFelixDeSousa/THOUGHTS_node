@@ -44,7 +44,7 @@ app.use(
         resave: false,
         // Não criar uma sessão nova sem conteúdo
         saveUninitialized: false,
-        // Especificar o armazenamento das sessões em arquivos
+            
         store: new FileStore({
             logFn: function () {},
             // Especificar o diretório de armazenamento das sessões

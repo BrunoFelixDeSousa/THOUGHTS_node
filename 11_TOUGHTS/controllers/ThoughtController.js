@@ -30,6 +30,7 @@ module.exports = class ToughtController {
                 order: [['createdAt', order]]
             })
             const thoughts = thoughtData.map((result) => result.get({plain: true}))
+            
             const user = await User.findOne({where: {id: req.session.userid}})
             const userfilter = user.dataValues
 

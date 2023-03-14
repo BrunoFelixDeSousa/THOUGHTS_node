@@ -48,7 +48,7 @@ module.exports = class AuthController {
 
         // password match validation
         if ((password != confirmpassword)) {
-            req.flash('message', 'As senhas não conferem, tente novamente')
+            req.flash('message', 'As senhas não conferem, tente novamente!')
             res.render('auth/register')
             return
         }
