@@ -1,0 +1,40 @@
+<h1>Editar produto</h1>
+<form action="/edit" method="POST">
+    <input type="hidden" name="id" value="{{product._id}}">
+    <div class="form-control">
+        <label for="name">Nome do produto:</label>
+        <input type="text" name="name" placeholder="Digite o nome do produto" value="{{product.name}}">
+    </div>
+    <div class="form-control">
+        <label for="price">Preço do produto:</label>
+        <input type="text" name="price" placeholder="Digite o preço" value="{{product.price}}">
+    </div>
+    <div class="form-control">
+        <label for="name">Descrição do produto:</label>
+        <textarea name="description" placeholder="Descrição do produto" >{{product.description}}</textarea>
+    </div>
+    <div class="image-input">
+        <div class="form-control">
+            <label for="image">Imagem do produto:</label>
+            <input id="image-url" type="text" name="image" placeholder="Digite a url da imagem" value="{{product.image}}">
+        </div>
+        <img id="product-image" src="{{product.image}}" alt="Image do produto" height="100px" />
+    </div>
+    <input type="submit" class="btn" value="Atualizar" >
+</form>
+
+<script>
+    const imageUrlInput = document.getElementById("image-url");
+    const productImage = document.getElementById("product-image");
+
+    imageUrlInput.addEventListener("blur", (e) => {
+        const url = e.target.value;
+
+        if (url === "") {
+            productImage.setAttribute("src", "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Placeholder_view_vector.svg/681px-Placeholder_view_vector.svg.png");
+            return;
+        }
+
+        productImage.setAttribute("src", url);
+    })
+</script>
